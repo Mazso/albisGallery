@@ -35,14 +35,14 @@ section p {
    z-index:199;
    width:100%;
    height:100%;
-   background-color: rgba(225, 0, 0, .1);	
+   background-color: rgba(225, 0, 0, .2);	
 }
 
 #wall {
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	background-color: rgba(0, 225, 0, .1);
+	background-color: rgba(0, 225, 0, .2);
 }
 
 #frame {
@@ -52,13 +52,15 @@ section p {
 	width: 100% !important;
 	height: 100% !important;
 	text-align: center;
-   	background-color: rgba(0, 0, 225, .1);  
+   	background-color: rgba(0, 0, 225, .2);  
 
 }
 
 #overlay figure {
  	display: table-cell;
 	vertical-align: middle;
+	border: 10px solid red !important;
+	
 }
 
 #overlay figcaption {
@@ -70,10 +72,14 @@ section p {
 
 
 #overlay img {
-	max-width: 640px;
-	max-height: 640px;
+	
+	max-width:640px !important;
 	width: 100%;
-	height: 100%;
+	height:auto;
+	max-heigth:100%;
+	
+	width: auto\9; /* ie8 */
+	display: inline;
 }
 
 /* @end */
