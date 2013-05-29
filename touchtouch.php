@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <head><meta charset="utf-8">
-<link rel="stylesheet" href="/client/css/standard.css">
+<link rel="stylesheet" href="/client/css/touchtouch.css">
+<title>GALERIE</title>
 </head>
 
 <body>
@@ -15,15 +16,23 @@
 
 
 </section>
-<div id="overlay">
-	<div id="wall">
-		<div id="frame">
-			<figure>
-				<img src="/images/bild01.jpg">
-				<figcaption>Bild 01 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque dictum dolor in lorem mattis ut dignissim sapien pharetra.</figcaption>
-			</figure>
-		</div>
-	</div>
+<div id="overlay" style="display: block;" class="visible">
+<div id="wall" style="left: 0%;">
+<figure class="frame">
+<img src="/images/bild01.jpg"/>
+<figcaption>nashörner sind ganz schön dicke Dinger.</figcaption>
+</figure>
+<figure class="frame">
+<img src="/images/bild02.jpg"/>
+<figcaption>Dieser Weg führt ins Nirgendwo.</figcaption>
+</figure>
+<figure class="frame">
+<img src="/images/bild03.jpg"/>
+<!--<figcaption>HIer haben wir ein extremes Querformat</figcaption>-->
+</figure>
+</div>
+<a id="prevArrow"/>
+<a id="nextArrow"/>
 </div>
 </body>
 <!--script src="/client/scripts/jquery.min.js"></script>

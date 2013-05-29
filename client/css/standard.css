@@ -60,6 +60,9 @@ section p {
  	display: table-cell;
 	vertical-align: middle;
 	border: 10px solid red !important;
+	height: 100%;
+	line-height: 1px;
+	text-align: center
 	
 }
 
@@ -67,6 +70,7 @@ section p {
 	font-size: 1.2em;
 	color: #000;
 	background: #fff;
+	line-height: 0;
 }
 
 
