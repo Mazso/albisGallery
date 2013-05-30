@@ -16,20 +16,44 @@
 
 
 </section>
-<div id="overlay" style="display: block;" class="visible">
-<div id="wall" style="left: 0%;">
-<figure class="frame">
-<img src="/images/bild01.jpg"/>
-<figcaption>nashörner sind ganz schön dicke Dinger.</figcaption>
-</figure>
-<figure class="frame">
-<img src="/images/bild02.jpg"/>
-<figcaption>Dieser Weg führt ins Nirgendwo.</figcaption>
-</figure>
-<figure class="frame">
-<img src="/images/bild03.jpg"/>
-<!--<figcaption>HIer haben wir ein extremes Querformat</figcaption>-->
-</figure>
+<div id="overlay" style="display: block;" class="visible" >
+<div id="wall" stye="left: 0%">
+	<figure class="frame" style="left:0">
+	<img src="/images/bild01.jpg"/>
+	<figcaption>nashörner sind ganz schön dicke Dinger.</figcaption>
+	</figure>
+	<figure class="frame" style="left:-4px">
+	<img src="/images/bild02.jpg"/>
+	<figcaption>Dieser Weg führt ins Nirgendwo.</figcaption>
+	</figure>
+	<figure class="frame"  style="left:-8px">
+	<img src="/images/bild03.jpg"/>
+	<figcaption>HIer haben wir ein extremes Querformat</figcaption>
+	</figure>
+	<figure class="frame" style="left:-12px">
+	<img src="/images/bild01.jpg"/>
+	<figcaption>nashörner sind ganz schön dicke Dinger.</figcaption>
+	</figure>
+	<figure class="frame" style="left:-16px">
+	<img src="/images/bild02.jpg"/>
+	<figcaption>Dieser Weg führt ins Nirgendwo.</figcaption>
+	</figure>
+	<figure class="frame" style="left:-20px">
+	<img src="/images/bild03.jpg"/>
+	<figcaption>HIer haben wir ein extremes Querformat</figcaption>
+	</figure>
+	<figure class="frame"  style="left:-24px">
+	<img src="/images/bild01.jpg"/>
+	<figcaption>nashörner sind ganz schön dicke Dinger.</figcaption>
+	</figure>
+	<figure class="frame" style="left:-28px">
+	<img src="/images/bild02.jpg"/>
+	<figcaption>Dieser Weg führt ins Nirgendwo.</figcaption>
+	</figure>
+	<figure class="frame" style="left:-32px">
+	<img src="/images/bild03.jpg"/>
+	<figcaption>HIer haben wir ein extremes Querformat</figcaption>
+	</figure>
 </div>
 <a id="prevArrow"/>
 <a id="nextArrow"/>
@@ -37,5 +61,4 @@
 </body>
 <!--script src="/client/scripts/jquery.min.js"></script>
 <script src="/client/scripts/scripts.min.js"></script-->
-
 </html>
