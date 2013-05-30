@@ -16,7 +16,7 @@
 </section>
 
 <div id="overlay" style="display: block;" class="visible" >
-<div id="wall" style="left: -300%">
+<div id="wall" style="left:-0%">
 <figure class="frame">
 <img src="/images/bild01.jpg"/>
 <figcaption>nashörner sind ganz schön dicke Dinger.</figcaption>
@@ -55,8 +55,10 @@
 </figure>
 </div>
 </div>
+<button id="prev">zurück</button>
+<button id="next">vor</button>
 </body>
-<!--script src="/client/scripts/jquery.min.js"></script>
-<script src="/client/scripts/scripts.min.js"></script-->
+<script src="/client/scripts/jquery.min.js"></script>
+<script src="/client/scripts/scripts.min.js"></script>
 
 </html>
