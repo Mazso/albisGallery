@@ -12,11 +12,28 @@
 	
 	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque dictum dolor in lorem mattis ut dignissim sapien pharetra. Aenean viverra, magna nec accumsan luctus, felis dolor ultricies sem, at egestas neque purus et eros. Suspendisse potenti. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent scelerisque purus nec tellus malesuada vulputate. Vestibulum et rutrum velit. </p>
 	
-	<button id="showover">Overlay anzeigen</button>
-	<div class="gallery	"></div>
+	
+	<div class="gallery	">
+	<ul>
+	
+		<li>eins</li>
+		<li>zwei</li>
+		<li>drei</li>
+		<li>vier</li>
+		<li>fünf</li>
+		<li>sechs</li>
+		<li>sieben</li>
+		<li>acht</li>
+		<li>neun</li>
+	
+	
+	</ul>
+	
+	
+	</div>
 </section>
 
-<div id="overlay" style="display: block;" class="visible" >
+<div id="overlay" style="display: block;" >
 <div id="wall" style="left:-0%">
 <figure class="frame">
 <img src="/images/bild01.jpg"/>
