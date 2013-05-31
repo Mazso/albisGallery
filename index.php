@@ -75,6 +75,7 @@
 </div>
 <button id="prev">zurück</button>
 <button id="next">vor</button>
+<button id="exit">schließen</button>
 </body>
 <script src="/client/scripts/jquery.min.js"></script>
 <script src="/client/scripts/scripts.min.js"></script>
