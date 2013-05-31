@@ -13,6 +13,7 @@
 	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque dictum dolor in lorem mattis ut dignissim sapien pharetra. Aenean viverra, magna nec accumsan luctus, felis dolor ultricies sem, at egestas neque purus et eros. Suspendisse potenti. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent scelerisque purus nec tellus malesuada vulputate. Vestibulum et rutrum velit. </p>
 	
 	<button id="showover">Overlay anzeigen</button>
+	<div class="gallery"></div>
 </section>
 
 <div id="overlay" style="display: block;" class="visible" >
