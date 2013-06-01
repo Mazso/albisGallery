@@ -13,7 +13,7 @@
 	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque dictum dolor in lorem mattis ut dignissim sapien pharetra. Aenean viverra, magna nec accumsan luctus, felis dolor ultricies sem, at egestas neque purus et eros. Suspendisse potenti. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent scelerisque purus nec tellus malesuada vulputate. Vestibulum et rutrum velit. </p>
 	
 	
-	<div class="gallery	">
+	<div id="albisThumbs">
 	<ul>
 	
 		<li>eins</li>
@@ -33,49 +33,50 @@
 	</div>
 </section>
 
-<div id="overlay" style="display: block;" >
-<div id="wall" style="left:-0%">
-<figure class="frame">
-<img src="/images/bild01.jpg"/>
-<figcaption>nashörner sind ganz schön dicke Dinger.</figcaption>
-</figure>
-<figure class="frame">
-<img src="/images/bild02.jpg"/>
-<figcaption>Dieser Weg führt ins Nirgendwo.</figcaption>
-</figure>
-<figure class="frame">
-<img src="/images/bild03.jpg"/>
-<figcaption>HIer haben wir ein extremes Querformat</figcaption>
-</figure>
-<figure class="frame">
-<img src="/images/bild01.jpg"/>
-<figcaption>nashörner sind ganz schön dicke Dinger.</figcaption>
-</figure>
-<figure class="frame">
-<img src="/images/bild02.jpg"/>
-<figcaption>Dieser Weg führt ins Nirgendwo.</figcaption>
-</figure>
-<figure class="frame">
-<img src="/images/bild03.jpg"/>
-<figcaption>HIer haben wir ein extremes Querformat</figcaption>
-</figure>
-<figure class="frame">
-<img src="/images/bild01.jpg"/>
-<figcaption>nashörner sind ganz schön dicke Dinger.</figcaption>
-</figure>
-<figure class="frame">
-<img src="/images/bild02.jpg"/>
-<figcaption>Dieser Weg führt ins Nirgendwo.</figcaption>
-</figure>
-<figure class="frame" >
-<img src="/images/bild03.jpg"/>
-<figcaption>HIer haben wir ein extremes Querformat</figcaption>
-</figure>
-</div>
+<div id="albisOverlay" style="display: block;" >
+	<div id="albisWall" style="left:-0%">
+		<figure>
+		<img src="/images/bild01.jpg"/>
+		<figcaption>nashörner sind ganz schön dicke Dinger.</figcaption>
+		</figure>
+		<figure>
+		<img src="/images/bild02.jpg"/>
+		<figcaption>Dieser Weg führt ins Nirgendwo.</figcaption>
+		</figure>
+		<figure>
+		<img src="/images/bild03.jpg"/>
+		<figcaption>HIer haben wir ein extremes Querformat</figcaption>
+		</figure>
+		<figure>
+		<img src="/images/bild01.jpg"/>
+		<figcaption>nashörner sind ganz schön dicke Dinger.</figcaption>
+		</figure>
+		<figure>
+		<img src="/images/bild02.jpg"/>
+		<figcaption>Dieser Weg führt ins Nirgendwo.</figcaption>
+		</figure>
+		<figure>
+		<img src="/images/bild03.jpg"/>
+		<figcaption>HIer haben wir ein extremes Querformat</figcaption>
+		</figure>
+		<figure>
+		<img src="/images/bild01.jpg"/>
+		<figcaption>nashörner sind ganz schön dicke Dinger.</figcaption>
+		</figure>
+		<figure>
+		<img src="/images/bild02.jpg"/>
+		<figcaption>Dieser Weg führt ins Nirgendwo.</figcaption>
+		</figure>
+		<figure>
+		<img src="/images/bild03.jpg"/>
+		<figcaption>HIer haben wir ein extremes Querformat</figcaption>
+		</figure>
 </div>
 <button id="prev">zurück</button>
 <button id="next">vor</button>
 <button id="exit">schließen</button>
+
+</div>
 </body>
 <script src="/client/scripts/jquery.min.js"></script>
 <script src="/client/scripts/scripts.min.js"></script>
