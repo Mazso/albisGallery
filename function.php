@@ -31,7 +31,7 @@ figure img {
 <div id="albisThumbs">
 <ul>
 
-<li><a href="EINS"><img title="BILD eins"></a></li>
+<li><a href="/images/bild01.jpg"><img title="BILD eins"></a></li>
 <li><a href="ZWEI"><img title="BILD zwei"></a></li>
 <li><a href="DREI"><img title="BILD drei"></a></li>
 <li><a href="VIER"><img title="BILD vier"></a></li>
@@ -87,15 +87,17 @@ $(document).ready (function () {
 		   var cap = $(this).find('img').attr('title');
 		   $('body').prepend('<figure><img data-src="' + href +  '"><figcaption>' + cap + '</figcaption></figure>');  
 		});
-		
-	});
-	/*
+	
 	$('figure img').click(function () {
 			$imgsrc = $(this).data('src');
-			alert('aS');
-			//$(this).attr('href', $imgsrc);
+			// alert($imgsrc);
+			$(this).attr('src', $imgsrc);
 	});		
-	*/
+	
+		
+	});
+	
+		
 
 });	
 
