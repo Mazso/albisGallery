@@ -71,7 +71,7 @@
 		<img src="/images/bild03.jpg"/>
 		<figcaption>HIer haben wir ein extremes Querformat</figcaption>
 		</figure>
-</div>
+	</div>
 <button id="prev">zurück</button>
 <button id="next">vor</button>
 <button id="exit">schließen</button>
