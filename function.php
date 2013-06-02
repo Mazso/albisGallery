@@ -11,9 +11,7 @@
 }
 
 figure img {
-	width: 180px !important;
-	height: 90px !important;
-	display: inline-block;
+	
 	background: red;
 }
 
@@ -31,15 +29,15 @@ figure img {
 <div id="albisThumbs">
 <ul>
 
-<li><a href="/images/bild01.jpg"><img title="BILD eins"></a></li>
-<li><a href="ZWEI"><img title="BILD zwei"></a></li>
-<li><a href="DREI"><img title="BILD drei"></a></li>
-<li><a href="VIER"><img title="BILD vier"></a></li>
-<li><a href="FÜNF"><img title="BILD fünf"></a></li>
-<li><a href="SECHS"><img title="BILD sechs"></a></li>
-<li><a href="SIEBEN"><img title="BILD sieben"></a></li>
-<li><a href="ACHT"><img title="BILD acht"></a></li>
-<li><a href="NEUN"><img title="BILD neun"></a></li>
+<li><a href="/images/bild01.jpg"><img title="BILD eins" src="/images/thumb01.jpg"></a></li>
+<li><a href="/images/bild02.jpg"><img title="BILD zwei" src="/images/thumb02.jpg"></a></li>
+<li><a href="/images/bild03.jpg"><img title="BILD drei" src="/images/thumb03.jpg"></a></li>
+<li><a href="/images/bild04.jpg"><img title="BILD vier" src="/images/thumb04.jpg"></a></li>
+<li><a href="/images/bild05.jpg"><img title="BILD fünf" src="/images/thumb05.jpg"></a></li>
+<li><a href="/images/bild06.jpg"><img title="BILD sechs" src="/images/thumb06.jpg"></a></li>
+<li><a href="/images/bild07.jpg"><img title="BILD sieben" src="/images/thumb07.jpg"></a></li>
+<li><a href="/images/bild08.jpg"><img title="BILD acht" src="/images/thumb09.jpg"></a></li>
+<li><a href="/images/bild09.jpg"><img title="BILD neun" src="/images/thumb09.jpg"></a></li>
 
 </ul>
 
@@ -58,6 +56,7 @@ $(document).ready (function () {
 
 	var $thumbs = $('#albisThumbs a');
 	
+	$('body').append('<div id="albisOverlay" style="display: block;"><div id="albisWall" style="left:-0%"></div><button id="prev">zurück</button ><button id="next">weiter</button><button id="exit">schließen</button></div>');
 	
 	var $frame = $('#albisWall figure'),
 		$frameNumber = $thumbs.length,
@@ -75,24 +74,33 @@ $(document).ready (function () {
 		$wall = $('#albisWall');
 	
 	$thumbs.click(function(event) {
-		// $(this).remove();
-		// alert('asd');
 		event.preventDefault();
+		$overlay.addClass('visible');
 		$thisFrame = $thumbs.index(this);
-		alert($thisFrame);
 		jQuery.fn.reverse = [].reverse; // kehrt Ausgebe der Schleife um
 		$thumbs.reverse().each(function(index) {
 		    //$(this).addClass('item-' + index);
 		   var href = $(this).attr('href');
 		   var cap = $(this).find('img').attr('title');
-		   $('body').prepend('<figure><img data-src="' + href +  '"><figcaption>' + cap + '</figcaption></figure>');  
+		   $wall.prepend('<figure><img data-src="' + href +  '"><figcaption>' + cap + '</figcaption></figure>');  
 		});
-	
-	$('figure img').click(function () {
+		/*
+		$thumbs.promise().done(function() {
+		    $imgsrc = $thisFrame.data('src');
+		    alert($thisFrame);
+		    $thisFrame.attr('src', $imgsrc);
+		  });
+		
+		$imgsrc = $thisFrame.data('src');
+		alert("asdasd");
+		$thisFrame.attr('src', $imgsrc);
+		*/
+		$('figure img').click(function () {
 			$imgsrc = $(this).data('src');
-			// alert($imgsrc);
-			$(this).attr('src', $imgsrc);
-	});		
+			if ($imgsrc != 0 ) {
+				$(this).attr('src', $imgsrc);
+			}
+		});		
 	
 		
 	});
