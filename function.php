@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head><meta charset="utf-8">
 <link rel="stylesheet" href="/client/css/standard.css">
-<title>GALERIE</title>
+<title>Albis Gallery</title>
 <style>
 
 #albisThumbs img {
@@ -18,7 +18,7 @@
 
 
 <section>
-	<h1>Galerie-TEST</h1>
+	<h1>Albis Gallery</h1>
 	
 	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque dictum dolor in lorem mattis ut dignissim sapien pharetra. Aenean viverra, magna nec accumsan luctus, felis dolor ultricies sem, at egestas neque purus et eros. Suspendisse potenti. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent scelerisque purus nec tellus malesuada vulputate. Vestibulum et rutrum velit. </p>
 
