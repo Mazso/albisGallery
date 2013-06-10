@@ -40,7 +40,7 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
 #albisWall{
 	position:absolute;
 	top:0;
-	left:-100%;
+	
 	width:100%;
 	height:100%;
 	white-space: nowrap;
@@ -61,7 +61,7 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
 	height: 100%;
 	line-height: 1px;
 	text-align: center;
-	/* background: url("preloader.gif") no-repeat center center; */
+	background: url('/client/grafik/loading.gif') no-repeat center center ;
 	
 	z-index: 1002;	
 }
@@ -101,6 +101,9 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
 	z-index:1004;
 	
 }
+
+
+
 
 #albisOverlay button {
 	z-index:2000;

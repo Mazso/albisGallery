@@ -10,14 +10,6 @@
 	display: inline-block;
 }
 
-figure img {
-	
-	background: red;
-}
-
-.blue img {
-	background:  blue !important;
-}
 
 </style>
 </head>
@@ -72,11 +64,15 @@ $(document).ready (function () {
 		$prev = 0,
 		$next = 0,
 		$exit = 0,
-		$overlayHtml = '<div id="albisOverlay" style="display: block;"><div id="albisWall" style="left:0%"></div></div>',
+		$overlayHtml = '<div id="albisOverlay" style="display: block;"><div id="albisWall" style="r:0%"></div></div>',
 		$buttonsHtml = '<button id="prev">zurück</button ><button id="next">weiter</button><button id="exit">schließen</button>',
 		$piccounterHtml = '<p id="piccounter">Bild <span id="picnumber"></span> von <span id="allpics">' + $frameNumber + '</span></p>',
 		$picnumber = 0,
 		$piccounter = 0,
+		$gallaryImg = '',
+		$thisPic ='',
+		$nextPic ='',
+		$prevPic ='',
 		$wall = 0;
 	
 	$thumbs.click(function(event) {
@@ -85,32 +81,30 @@ $(document).ready (function () {
 		$overlay = $('#albisOverlay');
 		$wall = $('#albisWall');
 		$thisFrame = $thumbs.index(this);
-		$wall.css('left',(-$thisFrame*100)+'%').data('frame', $thisFrame);
+		// alert('Index beim Start' + $thisFrame);
+		
 		$overlay.addClass('visible slide').prepend($piccounterHtml, $buttonsHtml);
 		$prev = $overlay.find('#prev');
 		$next = $overlay.find('#next');
 		$exit = $('#exit');
 		$piccounter = $('#piccounter');
 		$picnumber = $('#picnumber');
-		$thisFrame = $thumbs.index(this);
-		jQuery.fn.reverse = [].reverse; // kehrt Ausgebe der Schleife um
-		$thumbs.reverse().each(function($frameNumber) {
+		
+		//alert($thisFrame);
+		//jQuery.fn.reverse = [].reverse; // kehrt Ausgebe der Schleife um
+		$thumbs.each(function($frameNumber) {
 		   var href = $(this).attr('href');
 		   var cap = $(this).find('img').attr('title');
-		   $wall.prepend('<figure><img data-src="' + href +  '" alt=""><figcaption>' + cap + '</figcaption></figure>'); 
+		   $wall.append('<figure><img data-src="' + href +  '" alt=""><figcaption>' + cap + '</figcaption></figure>'); 
 		});
 		
-		// Verhalten beim letzten Bild
-		if ($thisFrame == ($lastFrame) ) {
-			$next.hide();
-		}
-		// Verhalten beim ersten Bild
-		if ($thisFrame == 0 ) {
-			$prev.hide();
-		}
+		$thisFrame = $thumbs.index(this);
+				$wall.css('left',(-$thisFrame*100)+'%').data('frame', $thisFrame).addClass('zurück: ' + $prevFrame + ' vor: ' + $thisFrame);
+		
+		$gallaryImg = $('figure img');
 		
 		showPic();
-		
+
 		// vorwärts schalten
 		$next.click(function () {
 		 	showNext();
@@ -124,78 +118,90 @@ $(document).ready (function () {
 		 	exitGallery();
 		});
 		
+		// Verhalten beim letzten Bild
+		if ($thisFrame == ($lastFrame) ) {
+		 $next.hide();
+		}
+		// Verhalten beim ersten Bild
+		if ($thisFrame == 0 ) {
+		$prev.hide();
+		}
+		
 	});
 	
 	
 	
 	function showNext(){
 		//alert($thisFrame);
-		if($thisFrame < 0 || ($thisFrame + 2) >= $frameNumber){
+//		if($thisFrame < 0 || ($thisFrame + 2) >= $frameNumber){
 			//$next.hide();
-			return false;
-		}
-		else {
+//			return false;
+//		}
+//		else {
 			//alert($thisFrame+1);
 			$thisFrame = $wall.data('frame');
 			$nextFrame = $thisFrame+1;
 			// verändert die Position des Rahmens, speichert die Bildnummer für das nächste Bild
 			$wall.css('left',(-$nextFrame*100)+'%').data('frame', $nextFrame);
 			showPic();
-			// piccount();
+			
 			
 			if 	('$prev:hidden') {
 				// Blendet zurück-Botton bei Bedarf ein
 				$prev.show();
 			}
-		}
+//		}
 	}
 	
 	
 	
 	
 	function showPrev(){
-		if($thisFrame <= 1 || $thisFrame >= $frameNumber){
-			return false;
-		}
-		else {
+//		if($thisFrame <= 0 || $thisFrame >= $frameNumber){
+//			return false;
+//		}
+//		else {
 			// ermittelt voriges Bild
+			// alert($wall.data('frame'));
 			$thisFrame = $wall.data('frame');
-		
-			$prevFrame = $thisFrame - 1;
+			$prevFrame = $thisFrame-1 ;
 			// verändert die Position des Rahmens, speichert die Bildnummer für das vorigen Bild
-			$wall.css('left',(-$prevFrame*100)+'%').data("frame", $prevFrame);
+			$wall.css('left',(-$prevFrame*100)+'%').data("frame", $prevFrame).addClass('zurück: ' + $prevFrame + ' vor: ' + $thisFrame);
 			showPic();
-			
+						
 
 			if ('$next:hidden') {
 				// Blendet vorwärts-Botton bei Bedarf ein
 				$next.show();
 			}
 			
-		}
+		//}
 	}
 
 
 // Bild anzeigen
 
+	
 	function showPic() {
-		$gallaryImg = $('figure img');
-		$thisPic = $gallaryImg.eq($thisFrame);
-		$thissrc = $thisPic.data('src');
-		$thisPic.attr('src', $thissrc);
-		$nextPic = $gallaryImg.eq($thisFrame +1);
+	$thisPic = $gallaryImg.eq($thisFrame);
+	$thissrc = $thisPic.data('src');
+	$thisPic.attr('src', $thissrc);
+		$nextPic = $gallaryImg.eq($thisFrame -1);
 		$nextsrc = $nextPic.data('src');
 		$nextPic.attr('src', $nextsrc);
-		$prevPic = $gallaryImg.eq($thisFrame -1);
+		$prevPic = $gallaryImg.eq($thisFrame +1);
 		$prevsrc = $prevPic.data('src');
 		$prevPic.attr('src', $prevsrc);
+		//alert($wall.data('frame'));
+		piccount();
 		if ($wall.data('frame') == 0 ) {
 			$prev.hide();
+			// alert('nix davor');
 		}
 	
 		if (($wall.data('frame') + 1) == $frameNumber) {
-			
-			$next.hide();
+						//alert('nix danach');			
+			//$next.hide();
 		}
 		
 	}
@@ -204,7 +210,12 @@ $(document).ready (function () {
 	
 	function exitGallery(){
 		$overlay.remove();
-		$piccounter.remove();
+		//$piccounter.remove();
+	}
+	
+	function piccount() {
+		// aktuelle Nummer des Bildes (Start bei 1) in den Bilderzähler schreiben
+		$picnumber.empty().prepend($wall.data('frame') + 1);
 	}
 			
 
