@@ -109,34 +109,28 @@ $(document).ready (function () {
 	});
 
 	function showNext(){
-		//alert($thisFrame);
-//		if($thisFrame < 0 || ($thisFrame + 2) >= $frameNumber){
-			//$next.hide();
-//			return false;
-//		}
-//		else {
-			//alert($thisFrame+1);
-			$thisFrame = $wall.data('frame');
-			$nextFrame = $thisFrame+1;
-			// verändert die Position des Rahmens, speichert die Bildnummer für das nächste Bild
+		$thisFrame = $wall.data('frame');
+		$nextFrame = $thisFrame+1;
+		if(($thisFrame + 1) == $frameNumber){
+			return false;
+		}
+		else {
 			$wall.css('left',(-$nextFrame*100)+'%').data('frame', $nextFrame);
 			showPic();
 			if 	('$prev:hidden') {
 				// Blendet zurück-Botton bei Bedarf ein
 				$prev.show();
 			}
-//		}
+		}
 	}
 	
 	function showPrev(){
-//		if($thisFrame <= 0 || $thisFrame >= $frameNumber){
-//			return false;
-//		}
-//		else {
-			// ermittelt voriges Bild
-			// alert($wall.data('frame'));
-			$thisFrame = $wall.data('frame');
-			$prevFrame = $thisFrame-1 ;
+		$thisFrame = $wall.data('frame');
+		if($thisFrame <= 0){
+			return false;
+		}
+		else {
+			$prevFrame = $thisFrame-1;
 			// verändert die Position des Rahmens, speichert die Bildnummer für das vorigen Bild
 			$wall.css('left',(-$prevFrame*100)+'%').data("frame", $prevFrame).addClass('zurück: ' + $prevFrame + ' vor: ' + $thisFrame);
 			showPic();
@@ -144,28 +138,25 @@ $(document).ready (function () {
 				// Blendet vorwärts-Botton bei Bedarf ein
 				$next.show();
 			}
-		//}
+		}
 	}
 
 // Bild anzeigen
 	function showPic() {
-	$thisPic = $gallaryImg.eq($thisFrame);
-	$thissrc = $thisPic.data('src');
-	$thisPic.attr('src', $thissrc);
+		$thisPic = $gallaryImg.eq($thisFrame);
+		$thissrc = $thisPic.data('src');
+		$thisPic.attr('src', $thissrc);
 		$nextPic = $gallaryImg.eq($thisFrame -1);
 		$nextsrc = $nextPic.data('src');
 		$nextPic.attr('src', $nextsrc);
 		$prevPic = $gallaryImg.eq($thisFrame +1);
 		$prevsrc = $prevPic.data('src');
 		$prevPic.attr('src', $prevsrc);
-		//alert($wall.data('frame'));
 		piccount();
 		if ($wall.data('frame') == 0 ) {
 			$prev.hide();
-			// alert('nix davor');
 		}
 		if (($wall.data('frame') + 1) == $frameNumber) {
-						//alert('nix danach');			
 			$next.hide();
 		}
 	}
