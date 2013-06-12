@@ -3,9 +3,7 @@
 <head><meta charset="utf-8">
 <link rel="stylesheet" href="/client/css/standard.css?v=2">
 <title>Albis Gallery</title>
-<!--[if lte IE 8]>
    <script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
- <![endif]-->
 </head>
 
 <body>

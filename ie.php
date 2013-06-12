@@ -4,6 +4,7 @@
 <meta charset="utf-8"/>
 <link rel="stylesheet" href="/client/css/standard.css?v=1"/>
 <title>Albis Gallery</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="HandheldFriendly" content="True"><meta name="MobileOptimized" content="320">
 <!--[if lte IE 8]>
    <script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
  <![endif]-->
@@ -16,70 +17,35 @@
 </section>
 <script src="/client/scripts/jquery.min.js"></script>
 
+</body>
+
 <div id="albisOverlay" class="visible slide">
 <p id="piccounter">
 Bild 
-<span id="picnumber">2</span>
+<span id="picnumber">1</span>
  von 
 <span id="allpics">9</span>
 </p>
-<button id="pr">
-
+<button id="prev">
 zurück
 </button>
 <button id="next">
-
 weiter
 </button>
-<button id="exit">schließen</button>
-<div id="albisWall" style="left: -100%;">
+<button id="exit">schließen</button>ev
+<div id="albisWall" style="left: 0%;">
 <figure>
-
 <img data-src="/images/bild01.jpg" alt="" src="/images/bild01.jpg"/>
-<figcaption>BILD eins</figcaption>
+<figcaption><p>BILD eins</p></figcaption>
 </figure>
 <figure>
-
-<img data-src="/images/bild02.jpg" alt="" src="/images/bild02.jpg"/>
-<figcaption>BILD zwei</figcaption>
+<img data-src="/images/bild01.jpg" alt="" src="/images/bild01.jpg"/>
+<figcaption><p>BILD eins</p></figcaption>
 </figure>
 <figure>
-
-<img data-src="/images/bild03.jpg" alt="" src="/images/bild03.jpg"/>
-<figcaption>BILD drei</figcaption>
-</figure>
-<figure>
-
-<img data-src="/images/bild04.jpg" alt=""/>
-<figcaption>BILD vier</figcaption>
-</figure>
-<figure>
-
-<img data-src="/images/bild05.jpg" alt=""/>
-<figcaption>BILD fünf</figcaption>
-</figure>
-<figure>
-
-<img data-src="/images/bild06.jpg" alt=""/>
-<figcaption>BILD sechs</figcaption>
-</figure>
-<figure>
-
-<img data-src="/images/bild07.jpg" alt=""/>
-<figcaption>BILD sieben</figcaption>
-</figure>
-<figure>
-
-<img data-src="/images/bild08.jpg" alt=""/>
-<figcaption>BILD acht</figcaption>
-</figure>
-<figure>
-
-<img data-src="/images/bild09.jpg" alt=""/>
-<figcaption>BILD neun</figcaption>
+<img data-src="/images/bild01.jpg" alt="" src="/images/bild01.jpg"/>
+<figcaption><p>BILD eins</p></figcaption>
 </figure>
 </div>
 </div>
-</body>
-<style type="text/css"/>
 </html>
