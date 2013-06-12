@@ -60,7 +60,7 @@ jQuery.fn.albisGallery = function() {
 		$thumbs.each(function($frameNumber) {
 		   $href = $(this).attr('href');
 		   $cap = $(this).find('img').attr('title');
-		   $wall.append('<figure><img data-src="' + $href +  '" alt=""><figcaption>' + $cap + '</figcaption></figure>'); 
+		   $wall.append('<figure><img data-src="' + $href +  '" alt=""><figcaption><p>' + $cap + '</p></figcaption></figure>'); 
 		});
 		$thisFrame = $thumbs.index(this);
 		$wall.css('left',(-$thisFrame*100)+'%').data('frame', $thisFrame);
