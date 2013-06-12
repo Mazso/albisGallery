@@ -1,8 +1,9 @@
 <!DOCTYPE html>
+<html lang="de">
 <head><meta charset="utf-8">
-<link rel="stylesheet" href="/client/css/standard.css?v=1">
+<link rel="stylesheet" href="/client/css/standard.css?v=2">
 <title>Albis Gallery</title>
-<!--[if lte IE 9]>
+<!--[if lte IE 8]>
    <script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
  <![endif]-->
 </head>
@@ -18,15 +19,15 @@
 <div class="albisThumbs">
 <ul>
 
-<li><a href="/images/bild01.jpg"><img alt="" title="BILD eins" src="/images/thumb01.jpg"></a></li>
-<li><a href="/images/bild02.jpg"><img alt="" title="BILD zwei" src="/images/thumb02.jpg"></a></li>
-<li><a href="/images/bild03.jpg"><img alt="" title="BILD drei" src="/images/thumb03.jpg"></a></li>
-<li><a href="/images/bild04.jpg"><img alt="" title="BILD vier" src="/images/thumb04.jpg"></a></li>
-<li><a href="/images/bild05.jpg"><img alt="" title="BILD fünf" src="/images/thumb05.jpg"></a></li>
-<li><a href="/images/bild06.jpg"><img alt="" title="BILD sechs" src="/images/thumb06.jpg"></a></li>
-<li><a href="/images/bild07.jpg"><img alt="" title="BILD sieben" src="/images/thumb07.jpg"></a></li>
-<li><a href="/images/bild08.jpg"><img alt="" title="BILD acht" src="/images/thumb08.jpg"></a></li>
-<li><a href="/images/bild09.jpg"><img alt="" title="BILD neun" src="/images/thumb09.jpg"></a></li>
+<li><a href="/images/bild01.jpg"><img title="BILD eins" src="/images/thumb01.jpg"></a></li>
+<li><a href="/images/bild02.jpg"><img title="BILD zwei" src="/images/thumb02.jpg"></a></li>
+<li><a href="/images/bild03.jpg"><img title="BILD drei" src="/images/thumb03.jpg"></a></li>
+<li><a href="/images/bild04.jpg"><img title="BILD vier" src="/images/thumb04.jpg"></a></li>
+<li><a href="/images/bild05.jpg"><img title="BILD fünf" src="/images/thumb05.jpg"></a></li>
+<li><a href="/images/bild06.jpg"><img title="BILD sechs" src="/images/thumb06.jpg"></a></li>
+<li><a href="/images/bild07.jpg"><img title="BILD sieben" src="/images/thumb07.jpg"></a></li>
+<li><a href="/images/bild08.jpg"><img title="BILD acht" src="/images/thumb08.jpg"></a></li>
+<li><a href="/images/bild09.jpg"><img title="BILD neun" src="/images/thumb09.jpg"></a></li>
 
 </ul>
 
@@ -47,7 +48,7 @@ jQuery.fn.albisGallery = function() {
 	var $thumbs = $('.albisThumbs a'),
 		$frameNumber = $thumbs.length,
 		$overlayHtml = '<div id="albisOverlay"><div id="albisWall"></div></div>',
-		$buttonsHtml = '<button id="prev">zurück</button ><button id="next">weiter</button><button id="exit">schließen</button>',
+		$buttonsHtml = '<button id="prev"><span>zurück</span></button ><button id="next"><span>weiter</span></button><button id="exit">schließen</button>',
 		$piccounterHtml = '<p id="piccounter">Bild <span id="picnumber"></span> von <span id="allpics">' + $frameNumber + '</span></p>';
 	
 	$thumbs.click(function(event) {
@@ -59,7 +60,7 @@ jQuery.fn.albisGallery = function() {
 		$thumbs.each(function($frameNumber) {
 		   $href = $(this).attr('href');
 		   $cap = $(this).find('img').attr('title');
-		   $wall.append('<figure><img alt="" data-src="' + $href +  '" alt=""><figcaption>' + $cap + '</figcaption></figure>'); 
+		   $wall.append('<figure><img data-src="' + $href +  '" alt=""><figcaption>' + $cap + '</figcaption></figure>'); 
 		});
 		$thisFrame = $thumbs.index(this);
 		$wall.css('left',(-$thisFrame*100)+'%').data('frame', $thisFrame);
@@ -67,7 +68,7 @@ jQuery.fn.albisGallery = function() {
 		$next = $overlay.find('#next');
 		$piccounter = $('#piccounter');
 		$picnumber = $('#picnumber');
-		$gallaryimg alt="" = $wall.find('img');
+		$gallaryImg = $wall.find('img');
 		showPic();
 		$next.click(function () {
 		 	showNext();

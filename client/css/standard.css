@@ -152,8 +152,12 @@ section {
 	top: 20%;
 	bottom: 20%;
 	width: 48%;
-	color: transparent;
-		background: none;
+	background: none;
+}
+
+#albisOverlay #next span, #albisOverlay #prev span {
+	text-indent: -10000px;
+	float: left;
 }
 
 #albisOverlay #next:hover, #albisOverlay #prev:hover {
