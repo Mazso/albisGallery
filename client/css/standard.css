@@ -26,7 +26,7 @@ section {
 }
 
 
-#albisThumbs li {
+.albisThumbs li {
 	background: #fff;
 	background: #444;
 	color: #eee;
@@ -34,11 +34,11 @@ section {
 	border: 5px solid #FFFFFF;
 	margin: 0px 0px 20px 20px;
 	display: inline-block;
-	width: 100px;
-	height: 100px;
+	width: 90px;
+	height: 90px;
 }
 
-#abisThumbs img {
+.albisThumbs img {
 	width: 90px;
 	height: 90px;
 }
@@ -49,7 +49,7 @@ section {
 
 #albisOverlay{
 	position:fixed;
-	display:none;
+	display:block;
 	top:0;
 	left:0;
 	z-index:-100;
