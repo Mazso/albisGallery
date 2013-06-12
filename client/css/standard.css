@@ -151,7 +151,7 @@ section {
 	position: relative;
 }
 
-#albisOverlay #next, #albisOverlay #prev {
+#albisOverlay .next, #albisOverlay .prev {
 	border: 0px !important;
 	
 	position: absolute;
@@ -160,32 +160,25 @@ section {
 	bottom: 20%;
 	width: 48%;
 	background: none;
-}
-
-#albisOverlay #next span, #albisOverlay #prev span {
-	text-indent: -10000px;
-	float: left;
-}
-
-#albisOverlay #next:hover, #albisOverlay #prev:hover {
-	background: none;
-}
-
-#albisOverlay #next {
-	right: 0 !important;
-}
-
-
-#albisOverlay #next, #albisOverlay #prev {	
 	opacity: 0.3;
 	transition:opacity 0.2s ease;
 }
 
-#albisOverlay #next:hover, #albisOverlay #prev:hover {
+#albisOverlay .next {
+	right: 0 !important;
+}
+
+#albisOverlay .next span, #albisOverlay .prev span {
+	text-indent: -10000px;
+	float: left;
+}
+
+#albisOverlay .next:hover, #albisOverlay .prev:hover {
+	background: none;
 	opacity: 1;
 }
 
-#albisOverlay #next:before {
+#albisOverlay .next:before {
 	content:  " ";
 	display: block;
 	border: 2em solid transparent;
@@ -196,7 +189,7 @@ section {
 	
 }
 
-#albisOverlay #prev:before {
+#albisOverlay .prev:before {
 	content:  " ";
 	display: block;
 	border: 2em solid transparent;
@@ -225,84 +218,3 @@ section {
 	font-size: 1.4em;
 }
 
-
-
-
-/*----------------------*/
-
-/* The before element moves the
- * image halfway from the top */
-
-
-
-#albisWall.rightSpring{
-	-webkit-animation: rightSpring 0.3s;
-	-moz-animation: rightSpring 0.3s;
-}
-
-#albisWall.leftSpring{
-	-webkit-animation: leftSpring 0.3s;
-	-moz-animation: leftSpring 0.3s;
-}
-
-/* Firefox Keyframe Animations */
-
-@-moz-keyframes rightSpring{
-	0%{		margin-left:0px;}
-	50%{	margin-left:-30px;}
-	100%{	margin-left:0px;}
-}
-
-@-moz-keyframes leftSpring{
-	0%{		margin-left:0px;}
-	50%{	margin-left:30px;}
-	100%{	margin-left:0px;}
-}
-
-/* Safari and Chrome Keyframe Animations */
-
-@-webkit-keyframes rightSpring{
-	0%{		margin-left:0px;}
-	50%{	margin-left:-30px;}
-	100%{	margin-left:0px;}
-}
-
-@-webkit-keyframes leftSpring{
-	0%{		margin-left:0px;}
-	50%{	margin-left:30px;}
-	100%{	margin-left:0px;}
-}
-
-/* Arrows */
-
-#prevArrow,#nextArrow{
-	position:absolute;
-	
-	top:50%;
-	margin-top:-29px;
-	border:none;
-	width:43px;
-	height:58px;
-	text-decoration:none;
-	background:url('arrows.png') no-repeat;
-	opacity:0.5;
-	cursor:pointer;
-	-webkit-transition:opacity 0.2s ease;
-	
-	-moz-transition:opacity 0.2s ease;
-	transition:opacity 0.2s ease;
-}
-
-#prevArrow:hover, #nextArrow:hover{
-	opacity:1;
-}
-
-#prevArrow{
-	left:40px;
-	background-position:left top;
-}
-
-#nextArrow{
-	right:40px;
-	background-position:right top;
-}

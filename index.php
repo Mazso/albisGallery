@@ -45,16 +45,13 @@ jQuery.fn.albisGallery = function() {
 		
 	var $thumbs = $('.albisThumbs a'),
 		$frameNumber = $thumbs.length,
-		$overlayHtml = '<div id="albisOverlay"><div id="albisWall"></div></div>',
-		$buttonsHtml = '<button id="prev"><span>zurück</span></button ><button id="next"><span>weiter</span></button><button id="exit">schließen</button>',
-		$piccounterHtml = '<p id="piccounter">Bild <span id="picnumber"></span> von <span id="allpics">' + $frameNumber + '</span></p>';
-	
+		$overlayHtml = '<div id="albisOverlay"><p id="piccounter">Bild <span id="picnumber"></span> von <span id="allpics">' + $frameNumber + '</span></p><button class="prev"><span>zurück</span></button ><button class="next"><span>weiter</span></button><button id="exit">schließen</button><div id="albisWall"></div></div>';
 	$thumbs.click(function(event) {
 		event.preventDefault();
 		$('body').append($overlayHtml);
 		$overlay = $('#albisOverlay');
 		$wall = $('#albisWall');
-		$overlay.addClass('visible slide').prepend($piccounterHtml, $buttonsHtml);
+		$overlay.addClass('visible slide');
 		$thumbs.each(function($frameNumber) {
 		   $href = $(this).attr('href');
 		   $cap = $(this).find('img').attr('title');
@@ -62,9 +59,8 @@ jQuery.fn.albisGallery = function() {
 		});
 		$thisFrame = $thumbs.index(this);
 		$wall.css('left',(-$thisFrame*100)+'%').data('frame', $thisFrame);
-		$prev = $overlay.find('#prev');
-		$next = $overlay.find('#next');
-		$piccounter = $('#piccounter');
+		$prev = $overlay.find('.prev');
+		$next = $overlay.find('.next');
 		$picnumber = $('#picnumber');
 		$gallaryImg = $wall.find('img');
 		showPic();
