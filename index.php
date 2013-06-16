@@ -39,12 +39,15 @@
 
 <script>
 
+(function($,window,undefined){var pluginName="touchClick";var defaults={className:"active",callback:function(){console.log("touchClick")}};var isTouch=("ontouchend" in window);var touchstartEvent=isTouch?"touchstart."+pluginName:"mousedown."+pluginName;var touchmoveEvent=isTouch?"touchmove."+pluginName:"mousemove."+pluginName;var touchendEvent=isTouch?"touchend."+pluginName:"mouseup."+pluginName;function Plugin(element,className,callback){this.element=element;if(typeof className==="function"){this.options={};this.options.className=defaults.className;this.options.callback=className}else{this.options={className:className||defaults.className,callback:callback||defaults.callback}}this._defaults=defaults;this._name=pluginName;this.init()}Plugin.prototype.init=function(){var self=this;var $element=$(self.element);var className=self.options.className;var callback=self.options.callback;$element.bind(touchstartEvent,function(e){this.touchClickStart=true;$element.addClass(className)}).bind(touchmoveEvent,function(e){if(this.touchClickStart){this.touchClickStart=undefined;$element.removeClass(className)}}).bind(touchendEvent,function(e){var dom=this;if(this.touchClickStart){this.touchClickStart=undefined;$element.removeClass(className);setTimeout(function(){$.proxy(callback,dom)(e)},0)}})};$.fn[pluginName]=function(className,callback){return this.each(function(){if(!$.data(this,"plugin_"+pluginName)){$.data(this,"plugin_"+pluginName,new Plugin(this,className,callback))}})}})(jQuery,window);
+
 	
 
 jQuery.fn.albisGallery = function() {
 		
-	var $thumbs = $('.albisThumbs a'),
+	var $thumbs = $('div.albisThumbs').find('a'),
 		$frameNumber = $thumbs.length,
+		$thisFrame = 0,
 		$overlayHtml = '<div id="albisOverlay"><p id="piccounter">Bild <span id="picnumber"></span> von <span id="allpics">' + $frameNumber + '</span></p><button class="prev"><span>zurück</span></button ><button class="next"><span>weiter</span></button><button id="exit">schließen</button><div id="albisWall"></div></div>';
 	$thumbs.click(function(event) {
 		event.preventDefault();
@@ -52,27 +55,30 @@ jQuery.fn.albisGallery = function() {
 		$overlay = $('#albisOverlay');
 		$wall = $('#albisWall');
 		$overlay.addClass('visible slide');
+		var $albisFigure = '';
+		
 		$thumbs.each(function($frameNumber) {
 		   $href = $(this).attr('href');
 		   $cap = $(this).find('img').attr('title');
-		   $wall.append('<figure><img data-src="' + $href +  '" alt=""><figcaption><p>' + $cap + '</p></figcaption></figure>'); 
+		    $albisFigure += '<figure><img data-src="' + $href +  '" alt=""><figcaption><p>' + $cap + '</p></figcaption></figure>';
 		});
+		$wall.html($albisFigure);
 		$thisFrame = $thumbs.index(this);
 		$wall.css('left',(-$thisFrame*100)+'%').data('frame', $thisFrame);
-		$prev = $overlay.find('.prev');
-		$next = $overlay.find('.next');
+		$prev = $overlay.find('button.prev');
+		$next = $overlay.find('button.next');
 		$picnumber = $('#picnumber');
 		$gallaryImg = $wall.find('img');
 		showPic();
-		$next.click(function () {
+		$next.touchClick(function () {
 		 	showNext();
 		});
 		
-		$prev.click(function () {
+		$prev.touchClick(function () {
 		 	showPrev();
 		});
 		
-		$('#exit').click(function() {
+		$('#exit').touchClick(function() {
 		 	exitGallery();
 		});
 	});
@@ -136,8 +142,9 @@ jQuery.fn.albisGallery = function() {
 
 };	
 
-$('.albisThumbs').albisGallery();
-
+$(window).load(function(){
+	$('.albisThumbs').albisGallery();
+});
 
 
 </script>
