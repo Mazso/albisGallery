@@ -48,6 +48,10 @@ jQuery.fn.albisGallery = function() {
 	var $thumbs = $('div.albisThumbs').find('a'),
 		$frameNumber = $thumbs.length,
 		$thisFrame = 0,
+		$nextFrame = 0,
+		$prevFrame = 0,
+		$nextsrc = 0,
+		$prevsrc = 0,
 		$overlayHtml = '<div id="albisOverlay"><p id="piccounter">Bild <span id="picnumber"></span> von <span id="allpics">' + $frameNumber + '</span></p><button class="prev"><span>zurück</span></button ><button class="next"><span>weiter</span></button><button id="exit">schließen</button><div id="albisWall"></div></div>';
 	$thumbs.click(function(event) {
 		event.preventDefault();
@@ -86,6 +90,7 @@ jQuery.fn.albisGallery = function() {
 	function showNext(){
 		$thisFrame = $wall.data('frame');
 		$nextFrame = $wall.data('frame')+1;
+		
 		if($nextFrame == $frameNumber){
 			return false;
 		}
@@ -117,12 +122,22 @@ jQuery.fn.albisGallery = function() {
 		$thisPic = $gallaryImg.eq($thisFrame);
 		$thissrc = $thisPic.data('src');
 		$thisPic.attr('src', $thissrc);
+		
 		$nextPic = $gallaryImg.eq($thisFrame+1);
 		$nextsrc = $nextPic.data('src');
 		$nextPic.attr('src', $nextsrc);
+		
+		$nextnextPic = $gallaryImg.eq($thisFrame+2);
+		$nextnextsrc = $nextnextPic.data('src');
+		$nextnextPic.attr('src', $nextnextsrc);
+		
 		$prevPic = $gallaryImg.eq($thisFrame-1);
 		$prevsrc = $prevPic.data('src');
 		$prevPic.attr('src', $prevsrc);
+		
+		$prevprevPic = $gallaryImg.eq($thisFrame-2);
+		$prevprevsrc = $prevprevPic.data('src');
+		$prevprevPic.attr('src', $prevprevsrc);
 		piccount();
 		if ($wall.data('frame') == 0 ) {
 			$prev.hide();
