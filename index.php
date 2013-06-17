@@ -104,7 +104,7 @@ jQuery.fn.albisGallery = function() {
 	}
 	
 	function showPrev(){
-		$thisFrame = $wall.data('frame')-1;
+		$thisFrame = $wall.data('frame');
 		$prevFrame =  $thisFrame-1;
 		if($thisFrame <= 0){
 			return false;
@@ -128,7 +128,7 @@ jQuery.fn.albisGallery = function() {
 		$nextPic.attr('src', $nextsrc);
 	
 		if (!$thisFrame <= 0 ) {
-		$prevPic = $gallaryImg.eq($thisFrame-1);
+		$prevPic = $gallaryImg.eq($thisFrame-2);
 		$prevsrc = $prevPic.data('src');
 		$prevPic.attr('src', $prevsrc);
 		}
