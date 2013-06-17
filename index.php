@@ -88,7 +88,7 @@ jQuery.fn.albisGallery = function() {
 	});
 
 	function showNext(){
-		$thisFrame = $wall.data('frame');
+		$thisFrame = $wall.data('frame')+1;
 		$nextFrame = $wall.data('frame')+1;
 		
 		if($nextFrame == $frameNumber){
@@ -104,7 +104,7 @@ jQuery.fn.albisGallery = function() {
 	}
 	
 	function showPrev(){
-		$thisFrame = $wall.data('frame');
+		$thisFrame = $wall.data('frame')-1;
 		$prevFrame =  $thisFrame-1;
 		if($thisFrame <= 0){
 			return false;
@@ -126,18 +126,12 @@ jQuery.fn.albisGallery = function() {
 		$nextPic = $gallaryImg.eq($thisFrame+1);
 		$nextsrc = $nextPic.data('src');
 		$nextPic.attr('src', $nextsrc);
-		
-		$nextnextPic = $gallaryImg.eq($thisFrame+2);
-		$nextnextsrc = $nextnextPic.data('src');
-		$nextnextPic.attr('src', $nextnextsrc);
-		
+	
+		if (!$thisFrame <= 0 ) {
 		$prevPic = $gallaryImg.eq($thisFrame-1);
 		$prevsrc = $prevPic.data('src');
 		$prevPic.attr('src', $prevsrc);
-		
-		$prevprevPic = $gallaryImg.eq($thisFrame-2);
-		$prevprevsrc = $prevprevPic.data('src');
-		$prevprevPic.attr('src', $prevprevsrc);
+		}
 		piccount();
 		if ($wall.data('frame') == 0 ) {
 			$prev.hide();
