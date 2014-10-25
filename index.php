@@ -124,7 +124,6 @@ jQuery.fn.albisGallery = function() {
 		$thisPic.attr('src', $thissrc);
 		//alert('thisFrame: ' + $thisFrame + 'prevFrame' + $prevFrame);
 		$nextPic = $gallaryImg.eq($thisFrame+1);
-		
 		$nextsrc = $nextPic.data('src');
 		$nextPic.attr('src', $nextsrc);
 	
