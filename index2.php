@@ -343,44 +343,8 @@ only screen and (min-resolution: 144dpi)and (min-width: 1200px),
     </style>
     <body>
         
-        
-<section id="albisOver">
-    <div id="albisWall" style="left: 0%;">
-        <figure class="albisFig"><!--img class="albisImg" src="/images/bild01@2.jpg"-->
-    <img class="albisImg" sizes="(min-width: 920px) 1200px, 600px"  srcset="/images/bild01@1.jpg 600w, /images/bild01@2.jpg 1200w">
-        
-            <figcaption class="albisCap">
-                <p class="albisCap_p"> Kirche St. Nicolai Coswig </p>
-            </figcaption>
-        </figure>
-        <figure class="albisFig"><img class="albisImg" alt="" src="/images/bild02@2.jpg">
-            <figcaption class="albisCap">
-                <p class="albisCap_p"> Kirche St. Nicolai Coswig </p>
-            </figcaption>
-        </figure>
-        <figure class="albisFig"><img class="albisImg" src="/images/bild03@2.jpg" alt="">
-            <figcaption class="albisCap">
-                <p class="albisCap_p"> Portal der Kirche St. Nicolai Coswig </p>
-            </figcaption>
-        </figure>
-        <figure class="albisFig"><img class="albisImg" src=" /images/bild04@2.jpg" alt="">
-            <figcaption class="albisCap">
-                <p class="albisCap_p"> Epitaph des Otto von Pogk von Lucas Cranach d.J. in der Kirche St. Nicolai Coswig, Foto: Klitzsch </p>
-            </figcaption>
-        </figure>
-        <figure class="albisFig"><img class="albisImg" alt="" src="/images/bild05@2.jpg">
-            <figcaption class="albisCap">
-                <p class="albisCap_p"> Innenraum der Kirche St. Nicolai Coswig </p>
-            </figcaption>
-        </figure>
-    </div>
-    
-    <p id="albisCounter">Bild <span id="picnumber"></span> von <span id="allpics"></span></p>
-    <button id="albisPrev"><span id="albisPrev_span">zurück</span></button>
-    <button id="albisNext"><span id="albisNext_span">weiter</span></button>
-    <button id="albisExit">schließen</button>
-    
-</section>
+        <button id="loadAlbisGallery">Galerie</button>
+
         <script id="test" type="application/json">
     {
       "images": [
@@ -415,136 +379,101 @@ only screen and (min-resolution: 144dpi)and (min-width: 1200px),
         
         //http://stackoverflow.com/questions/19333651/change-attribute-from-data-src-to-src-without-jquery
                         // get child node index javascript
-	(function () {
-                        
-               
-        
-                        var imgString = document.getElementById("test").innerText,
-                        // string in JSON-Objekt wandeln    
-                            imgJSON = JSON.parse(imgString),
-                            result = imgJSON.images,
-                            imgCount = result.length;
-                        console.log('imgCount' + imgCount);
-                        for (var i = 0; i < imgCount; i++) {
-                            var object = result[i];
-                            for (property in object) {
-                                var caption = object["caption"],
-                                    path = object["path"];
-                                console.log(caption + '' + path);
-                                  
-                            }
-                        
-                        }    
-                        
-        
-                      
-        
-                        var slide = document.getElementById("albisOver"),
-                            wall = document.getElementById("albisWall"),
-                            allpics = document.getElementById("allpics"),
-                            picnumber = document.getElementById("picnumber"),
-                            slideLength = result.length,
-                            nextButton = document.getElementById("albisNext"),
-                            prevButton = document.getElementById("albisPrev"),
-                            position = 0;
-                            
-                            allpics.textContent = slideLength;
-                            picnumber.textContent = '1';
-                
-						if(nextButton.parentNode){
-   							nextButton.addEventListener("click", nextSlide, false);
-							prevButton.addEventListener("click", prevSlide, false);
-							//prevButton.style.display ="none";
-							prevButton.classList.add("vs");
+	 function loadAlbisGallery() {
+"use strict";
+	    var imgString = document.getElementById("test").innerText,
+	        // string in JSON-Objekt wandeln    
+	        imgJSON = JSON.parse(imgString),
+	        result = imgJSON.images,
+	        imgCount = result.length;
 
-                        }
-                                                                    
-                        function nextSlide() {
-                            
-                            position = position + 1;
-                            //picnumber.textContent = position +1;
-                            //slide.setAttribute('data-slide', position);
-                            wall.style["left"] = '-' + position + '00%';
-                            var sliderImg = document.getElementsByClassName("slider-img");
-                            for (var i=0; i<sliderImg.length; i++) {
-                            if(sliderImg[i].getAttribute('data-src')) {
-                                   sliderImg[i].setAttribute('src',sliderImg[i].getAttribute('data-src'));
-                                   sliderImg[i].setAttribute('srcset',sliderImg[i].getAttribute('data-srcset'));    
-                                   sliderImg[i].removeAttribute('data-src');
-                                   sliderImg[i].removeAttribute('data-srcset');    //use only if you need to remove data-src attribute after setting src
-                                }
-                            }
-                            sliderButtons();
-                        }
-                        
-                         function prevSlide() {
-                            position = position - 1;
-                             
-                            //slide.setAttribute('data-slide', position);
-                            wall.style["left"] = '-' + position + '00%';
-                            sliderButtons();
-                        }
-                        
-                        function sliderButtons() {
-                            picnumber.textContent = position +1;
-                             if (position == slideLength - 1) {
-                                //nextButton.style.display ="none";
-								 nextButton.classList.add("vs");
-                            }
-                             else  {
-                                //nextButton.style.display ="inline";
-								 nextButton.classList.remove("vs");
-		
-									//nextButton.style.removeProperty('display');
+	    var albisGallery = '<section id="albisOver"><div id="albisWall" style="left: 0%;"></div><p id="albisCounter">Bild <span id="picnumber"></span> von <span id="allpics">5</span></p><button id="albisPrev" class="vs"><span id="albisPrev_span">zurück</span></button><button id="albisNext"><span id="albisNext_span">weiter</span></button><button id="albisExit">schließen</button></section>';
 
+	    document.getElementsByTagName('body')[0].insertAdjacentHTML('beforeend', albisGallery);
 
-                            }
-                            if (position == 0) {
-                                //prevButton.style.display ="none";
-								prevButton.classList.add("vs");
-                            }
-                            
-                             else  {
-                                //prevButton.style.display ="inline";
-								// prevButton.style.removeProperty('display');
-								prevButton.classList.remove("vs"); 
-                            }
-                        }
-		}());
-        
-        
-        </script>
-        
-<!--section id="imageslider">
-    <div id="slidercontainer">
-        <div id="slide" class="sliders4">
-            <figure>
-                <div class="ratio"><img src="/images/bild01@2.jpg"></div>
-                <figcaption>Bild Nummer 1</figcaption>
-            </figure>
-            <figure>
-                <div class="ratio"><img src="/images/bild02@2.jpg"></div>
-                <figcaption>Bild Nummer 2</figcaption>
-            </figure>
-            <figure>
-                <div class="ratio"><img src="/images/bild03@2.jpg"></div>
-                <figcaption>Bild Nummer 3</figcaption>
-            </figure>
-            <figure>
-                <div class="ratio"><img src="/images/bild04@2.jpg"></div>
-                <figcaption>Bild Nummer 4</figcaption>
-            </figure>
-            <figure>
-                <div class="ratio"><img src="/images/bild05@2.jpg"></div>
-                <figcaption>Bild Nummer 5</figcaption>
-            </figure>
+	    var slide = document.getElementById("albisOver"),
+	        wall = document.getElementById("albisWall"),
+	        allpics = document.getElementById("allpics"),
+	        picnumber = document.getElementById("picnumber"),
+	        slideLength = result.length,
+	        nextButton = document.getElementById("albisNext"),
+	        prevButton = document.getElementById("albisPrev"),
+	        position = 0,
+            next;
+
+	    allpics.textContent = slideLength;
+	    picnumber.textContent = '1';
+
+	    for (var i = 0; i < slideLength; i++) {
+	        var object = result[i],
+	            caption = object["caption"],
+	            path = object["path"];
+	        wall.innerHTML += '<figure class="albisFig"><img class="albisImg" alt="" data-src="' + path + '"><figcaption class="albisCap"><p class="albisCap_p">' + caption + '</p></figcaption></figure>';
+	    }
+
+	    var albisImg = document.getElementsByClassName("albisImg"),
+	        albisImg0 = albisImg[0],
+	        albisImg1 = albisImg[1];
+	    if (albisImg0.hasAttribute('data-src')) {
+	        albisImg0.setAttribute('src', albisImg0.getAttribute('data-src'));
+	        albisImg0.removeAttribute('data-src');
+	    }
+	    if (albisImg1.hasAttribute('data-src')) {
+	        albisImg1.setAttribute('src', albisImg1.getAttribute('data-src'));
+	        albisImg1.removeAttribute('data-src');
+	    }
+	    if (nextButton.parentNode) {
+	        nextButton.addEventListener("click", nextSlide, false);
+	        prevButton.addEventListener("click", prevSlide, false);
+	        prevButton.classList.add("vs");
+	    }
+         
+        albisExit.addEventListener("click", closeGallery, false); 
+
+	    function nextSlide() {
+	        position = position + 1;
+	        wall.style["left"] = '-' + position + '00%';
+	        next = position + 1;
+	        picnumber.textContent = next;
+	        if (next < slideLength && albisImg[next].hasAttribute('data-src')) {
+	            albisImg[next].setAttribute('src', albisImg[next].getAttribute('data-src'));
+	            albisImg[next].removeAttribute('data-src');
+	        }
+	        sliderButtons();
+	    }
+
+	    function prevSlide() {
+	        picnumber.textContent = position;
+	        position = position - 1;
+	        wall.style["left"] = '-' + position + '00%';
+	        sliderButtons();
+	    }
+
+	    function sliderButtons() {
+	        if (position + 1 == slideLength) {
+	            nextButton.classList.add("vs");
+	        } else {
+	            nextButton.classList.remove("vs");
+	        }
+	        if (position == 0) {
+	            prevButton.classList.add("vs");
+	        } else {
+	            prevButton.classList.remove("vs");
+	        }
+	    }
+         
+        function closeGallery() {
+            slide.parentNode.removeChild(slide);
+        }
+         
+	};
             
-        </div>
-        <button id="prevslide">zurück</button>
-        <button id="nextslide">vor</button>
-    </div>
-    
-</section-->
-        <div id="overlay"></div>
+            
+    document.getElementById("loadAlbisGallery").addEventListener("click", loadAlbisGallery, false);        
+        
+    </script>
+        
+
+        
 </body>        
 </html>    
