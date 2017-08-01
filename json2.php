@@ -286,9 +286,9 @@ function albisGallery() {
     imgJSON = JSON.parse(imgString),
     result = imgJSON.images,
     // Zahl der Bilder    
-    imgCount = result.length,
+    imgCount = result.length;
     // Startposition Slider
-    position = 0;
+    
     
     
     if (imgCount > 1) {
@@ -303,7 +303,7 @@ function albisGallery() {
     
     function startAlbisGallery() {
     
-   
+        var position = 0;
     
     // sizes definieren
         var sizes = 'sizes="(max-width: 300px) 300px, (max-width: 450px) 450px, (max-width: 600px) 600px, (max-width: 900px) 900px, (max-width: 1200px) 1200px, (max-width: 1800px) 1800px, 2400px"';
