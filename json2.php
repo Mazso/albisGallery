@@ -277,18 +277,17 @@ function albisGallery() {
     // schreibe einen Button dran
     figcap.innerHTML += '<button id="albisGalleryStart"></button>';
     // finde diesen Button
-    var galleryStart = document.getElementById("albisGalleryStart");
+    var galleryStart = document.getElementById("albisGalleryStart"),
        
         
-    // JSON-Daten auslesen
-    var imgString = document.getElementById("albisImgList").innerText,
-    // string in JSON-Objekt wandeln    
-    imgJSON = JSON.parse(imgString),
-    result = imgJSON.images,
-    // Zahl der Bilder    
-    imgCount = result.length;
-    // Startposition Slider
-    
+        // JSON-Daten auslesen
+        imgString = document.getElementById("albisImgList").innerText,
+        // string in JSON-Objekt wandeln    
+        imgJSON = JSON.parse(imgString),
+        result = imgJSON.images,
+        // Zahl der Bilder    
+        imgCount = result.length;
+ 
     
     
     if (imgCount > 1) {
@@ -303,9 +302,9 @@ function albisGallery() {
     
     function startAlbisGallery() {
     
-        var position = 0;
+        
     
-    // sizes definieren
+        // sizes definieren
         var sizes = 'sizes="(max-width: 300px) 300px, (max-width: 450px) 450px, (max-width: 600px) 600px, (max-width: 900px) 900px, (max-width: 1200px) 1200px, (max-width: 1800px) 1800px, 2400px"';
         var sizes = 'sizes="(max-width: 300px) 300px, (max-width: 450px) 450px, (max-width: 600px) 600px, (max-width: 900px) 900px, (max-width: 1200px) 1200px, 1400px"';
 
@@ -319,7 +318,9 @@ function albisGallery() {
         // Rahmen der Galerie
         albisOver.innerHTML += '<div id="albisWall" style="transform: translate3d(0, 0, 0);"></div><button id="albisExit">schließen</button>';
 
-        var albisWall = document.getElementById("albisWall");
+        var albisWall = document.getElementById("albisWall"),
+            // Startposition Slider
+            position = 0;
 
         // Wenn mehr als ein Bild, BEdienelemente einblenden und NAvigationsfunktionen einbinden
         if (imgCount > 1) {
