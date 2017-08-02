@@ -66,6 +66,130 @@ button:focus {
     width: 1px;
     height: 1px
 }
+        
+        main {
+            width:100%;
+            max-width:500px;
+            margin:10em auto;
+        }    
+
+#hingucker {
+    float: left;
+    margin-bottom: 1.4em;
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+
+
+#hingucker_div {
+    border:1px solid rgba(67, 68, 71, .5);
+    height: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+
+
+.ratio16_9 {
+  padding-bottom: 55.7%;
+}
+
+.ratio4_3 {
+  padding-bottom: 74.7%;
+}
+
+.ratio3_2 {
+  padding-bottom: 66%;
+}
+
+
+.ratio2_1 {
+  padding-bottom: 49.5%;
+}
+
+#hingucker_img {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    box-sizing: border-box;
+    
+}
+
+#figcap {
+    display: inline-block;
+    padding: .4em 1em 0;
+    text-align: left;
+    font-size: 1rem;
+    line-height: 1.5;
+    font-style: italic;
+}
+
+#albisGalleryStart {
+    font-style: normal;
+    display: inherit;
+    top: .7em;
+    left: .7em;
+    height:1.4em;
+    border: 1px solid #fff;
+    border-radius: 3px;
+    box-shadow: 3px 3px 6px rgba(67, 68, 71, .2), -1px -1px 6px rgba(67, 68, 71, .1), -1px 1px 6px rgba(67, 68, 71, .1), 1px -1px 6px rgba(67, 68, 71, .1);
+    position: absolute;
+    background: rgba(67, 68, 71, .8);
+    color: #fff;
+}
+
+#albisGalleryStart:after {
+    display: block;
+    background-size: cover;
+    position: absolute;
+    content: "";
+}
+
+.galerie {
+    width: 5.4em;
+    padding-right: 5em !important;
+}
+
+.galerie:after {
+    background:url("/client/grafik/icon/icon1.svg") no-repeat  0 -42px;
+    width:16px;
+    height:16px;
+    top:-1px;
+    right: 2px;
+    margin:4px;
+}
+
+.galerie:hover, .galerie:focus, .zoom:hover, .zoom:focus  /*CSS2*/ {
+    background: #fff !important;
+    color:rgba(67, 68, 71, 1)  !important;
+}
+
+.galerie:hover:after, .galerie:focus:after  /*CSS2*/ {
+    background-position: 0 -21px;
+}
+
+.zoom {
+    width: 1.4em;
+}
+
+.zoom:after {
+    background:url("/client/grafik/icon/icon1.svg") no-repeat  0 -341px;
+    width:20px;
+    height:20px;
+    top:0;
+    right:0;
+}
+
+.zoom:hover:after, .zoom:focus:after  /*CSS2*/{
+    background-position: 0 -315px
+}        
+        
+        
+        
+        
 
 #albisGalleryStart {
     color: #eceeed;
@@ -231,16 +355,16 @@ button:focus {
     </style>
 </head>
 <body>
+    <main>
     <figure id="hingucker"><div id="hingucker_div" class="ratio3_2"><img id="hingucker_img" alt="" src="/images/bild01@2.jpg" width="500"></div><figcaption id="figcap">Ubuntu</figcaption></figure>
-    
+    </main>
 <script id="albisImgList" type="application/json">
       {
       "images": [
         {
           "src": "/images/bild01@2.jpg",
           "srcset": "/images/bild01@1.jpg 400w, /images/bild01@2.jpg 800w",
-          "caption": "ein"
-        },
+          "caption": "ein"},
         {
           "src": "/images/bild04@2.jpg",
           "srcset": "/images/300x200.png 300w, /images/450x300.png 450w, /images/600x400.png 600w, /images/900x600.png 900w, /images/1200x800.png 1200w,/images/1800x1200.png 1800w, /images/2400x1600.png 2400w",
@@ -261,6 +385,7 @@ button:focus {
           "srcset": "/images/bild05@1.jpg 400w, /images/bild05@2.jpg 800w",
           "caption": "fünf"
         }
+        
       ]
       }
 </script>
@@ -269,38 +394,44 @@ button:focus {
 <script>
 
 
-function albisGallery() {
+(function() {
     
-    "use strict";
+     "use strict";
     // Finde die figcaption
     var figcap = document.getElementById("figcap");
-    // schreibe einen Button dran
-    figcap.innerHTML += '<button id="albisGalleryStart"></button>';
-    // finde diesen Button
-    var galleryStart = document.getElementById("albisGalleryStart"),
-       
-        
-        // JSON-Daten auslesen
-        imgString = document.getElementById("albisImgList").innerText,
-        // string in JSON-Objekt wandeln    
-        imgJSON = JSON.parse(imgString),
-        result = imgJSON.images,
-        // Zahl der Bilder    
-        imgCount = result.length;
- 
     
+    if(figcap){
     
-    if (imgCount > 1) {
-        // wenn mehr als 1 Bild, beschrifte den Button mit Galerie
-        galleryStart.innerText = "Galerie";
+        // schreibe einen Button dran
+        figcap.innerHTML += '<button id="albisGalleryStart"></button>';
+        // finde diesen Button
+        var galleryStart = document.getElementById("albisGalleryStart"),
+
+
+            // JSON-Daten auslesen
+            imgString = document.getElementById("albisImgList").innerText,
+            // string in JSON-Objekt wandeln    
+            imgJSON = JSON.parse(imgString),
+            result = imgJSON.images,
+            // Zahl der Bilder    
+            imgCount = result.length;
+
+
+
+        if (imgCount > 1) {
+            // wenn mehr als 1 Bild, beschrifte den Button mit Galerie
+            galleryStart.innerText = "Galerie";
+            galleryStart.className += "galerie";
+        }
+        else {
+            // andernfalls mit Zoom
+            galleryStart.innerHTML = '<span class="vs">vergrößern</span>';
+            galleryStart.className += "zoom";
+        }
     }
-    else {
-        // andernfalls mit Zoom
-        galleryStart.innerText = "Zoom";
-    }
        
     
-    function startAlbisGallery() {
+    function albisGallery() {
     
         
     
@@ -450,9 +581,8 @@ function albisGallery() {
     
     }
 
-    galleryStart.addEventListener("click", startAlbisGallery, false);       
-}
-albisGallery();
+    galleryStart.addEventListener("click", albisGallery, false);       
+})();
     
 </script>
     
