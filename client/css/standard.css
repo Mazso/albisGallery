@@ -1,29 +1,296 @@
-html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,main,menu,nav,section,summary,time,mark,audio,video{margin:0;border:0;padding:0;outline:0;vertical-align:baseline;font-size:100%;background:transparent}article,aside,canvas,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}a{margin:0;border:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent}a:hover,a:active,:focus{outline:0}h1,h2,h3,h4,h5,h6{font-weight:bold}ins{background-color:#ff9;color:#000;text-decoration:none}mark{background-color:#ff9;color:#000;font-style:italic;font-weight:700}del{text-decoration:line-through}abbr[title],dfn[title]{border-bottom:1px dotted #000;cursor:help}sub,sup{position:relative;font-size:75%;line-height:0;vertical-align:baseline}sup{top:-0.5em}sub{bottom:-0.25em}ul,ol{margin-left:2em}nav ul{margin:0;list-style:none}dd{margin:0 0 0 1em}table{border-collapse:collapse;border-spacing:0}caption,th,td{text-align:left;font-weight:400}legend{display:table;white-space:normal}label{cursor:pointer}button,input,select,textarea{margin:0;vertical-align:baseline;*vertical-align:middle;font-size:100%}button,input{*overflow:visible;line-height:normal}table button,table input{*overflow:auto}button,input[type="button"],input[type="reset"],input[type="submit"],[role="button"]{cursor:pointer;-webkit-appearance:button}input[type="checkbox"],input[type="radio"]{padding:0;box-sizing:border-box}input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}button::-moz-focus-inner{border:0;padding:0}textarea{overflow:auto;vertical-align:top;resize:vertical}input,textarea{border:1px solid #ddd;margin:0;background-color:none;vertical-align:bottom}input:invalid,textarea:invalid{background-color:#f0dddd}img{border:0;-ms-interpolation-mode:bicubic;vertical-align:middle}hr{display:block;margin:1em 0;border:0;border-top:1px solid #ccc;padding:0;height:1px}html{height:100%;min-height:100.5%;overflow-y:scroll}
-body{
-	/* 1em = 10px */ 
-	font:normal 10px arial,  helvetica,  geneva,  sans-serif; /* ?? extra Lösung für mobil notwendig {font: sans-serif}*/
-	/*schwarz auf weiß*/
-	color:#444;
-	background:#fff;
-	/*weiß auf schwarz
-	color:#ccc;
-	background:#000;*/
-	/*Grauversion:
-	color:#424242;
-	background:#f6f6f6;*/
-	-webkit-text-size-adjust: 100%;
-	-ms-text-size-adjust: 100%;
-	-ms-touch-action: none !important;
+/* RESET für konsistente Anzeige in den Browsern, optional */
+
+
+button {
+    margin: 0;
+    vertical-align: baseline;
+    *vertical-align: middle;
+    font-size: 100%
+    *overflow: visible;
+    line-height: normal
+    cursor: pointer;
+    -webkit-appearance: button;
+    font-size: 100%;
+    margin: 0;
+    vertical-align: baseline;
+    border: 0;
+    outline: 0!important;
+    -webkit-appearance: none!important;
+    cursor: pointer;
+    -moz-appearance: none!important;
+        line-height: normal
+
 }
 
-#overlay {
+
+button::-moz-focus-inner {
+    border: 0;
+    padding: 0
+}
+
+body {
+    clear: both
+}
+
+/* Ende RESET */
+
+
+        
+main {
+    width:100%;
+    max-width:500px;
+    margin:10em auto;
+}
+
+
+/* AUFMACHERBILD - kann nach Belieben angepasst werden */
+
+#hingucker {
+    float: left;
+    margin-bottom: 1.4em;
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+
+
+#hingucker_div {
+    border:1px solid rgba(67, 68, 71, .5);
+    height: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+
+
+.ratio16_9 {
+  padding-bottom: 55.7%;
+}
+
+.ratio4_3 {
+  padding-bottom: 74.7%;
+}
+
+.ratio3_2 {
+  padding-bottom: 66%;
+}
+
+
+.ratio2_1 {
+  padding-bottom: 49.5%;
+}
+
+#hingucker_img {
     top: 0;
     left: 0;
-    z-index: 200;
-    overflow: hidden;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    box-sizing: border-box;
+    
+}
+
+#figcap {
+    display: inline-block;
+    padding: .4em 1em 0;
+    text-align: left;
+    font-size: 1rem;
+    line-height: 1.5;
+    font-style: italic;
+}
+
+
+/* Butto zum Aufruf der Galerie, Name darf nicht verändert werden */
+
+#albisGalleryStart {
+    font-style: normal;
+    display: inherit;
+    top: .7em;
+    left: .7em;
+    height:1.4em;
+    border: 1px solid #fff;
+    border-radius: 3px;
+    box-shadow: 3px 3px 6px rgba(67, 68, 71, .2), -1px -1px 6px rgba(67, 68, 71, .1), -1px 1px 6px rgba(67, 68, 71, .1), 1px -1px 6px rgba(67, 68, 71, .1);
+    position: absolute;
+    background: rgba(67, 68, 71, .8);
+    color: #fff;
+}
+
+#albisGalleryStart:hover, #albisGalleryStart:focus {
+    color:#000;
+    background: #fff;
+}        
+
+/* für die Galerie bzw. ein Einzelbild werden jeweils die class galerie bzw. zoom an den per JS generierten Button geschrieben und können hier definiert werden */
+        
+/* Overlay */
+
+#albisOver {
     position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3000;
+    display: block;
+    overflow: hidden;
     width: 100%;
     height: 100%;
-    display: block;
-    background: rgba(0, 0, 0, .4);
+    background: rgba(0, 0, 0, .8);
 }
+
+
+/* Enhält die figure-Elmente und wird per JS verschoben */
+
+#albisWall {
+    position: absolute;
+    top: 0;
+    letter-spacing: -4px;
+    width: 100%;
+    height: 100%;
+    white-space: nowrap;
+    /* ab hier kann nach Bedarf angepasst werden */
+    -webkit-transition: transform 1200ms ease-in-out;
+    transition: transform 1200ms ease-in-out;
+}
+
+/* fugure-Elemente - nicht verändern !*/
+
+.albisFig {
+    display: inline-block;
+    line-height: 1px;
+    position: relative;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1002;
+    text-align: center;
+    margin: 0;
+}
+
+.albisFig:before {
+    display: inline-block;
+    content: "";
+    margin-right: -1px;
+    width: 1px;
+    height: 50%;
+}
+
+
+/* die Bilder */
+
+.albisImg {
+    z-index: 1004;
+    display: inline-block;
+    vertical-align: middle;
+    /* ab hier kann nach Bedarf angepasst werden */
+    max-width: 90%;
+    max-height: 75%;
+    border: .3em solid #fff;
+}
+
+
+
+
+/* Bildunterschrift */
+
+.albisCap {
+    position: absolute;
+    right: 10%;
+    bottom: 5%;
+    left: 10%;
+    z-index: 1008!important;
+    white-space: normal;
+    letter-spacing: normal;
+    /* ab hier kann nach Bedarf angepasst werden */
+    line-height: 1.4;
+    font-size: 1rem;
+}
+
+.albisCap_p {
+    display: inline-block;
+    padding: .1em 1em;
+    color: #fff;
+    background: #333;
+    background: rgba(0, 0, 0, .6);
+}
+
+/* Vor- und Zurückbutton */
+
+#albisNext, #albisPrev {
+    position: absolute;
+    top: 20%;
+    bottom: 20%;
+    border: 0;
+    width: 48%;
+    outline: 0!important;
+    z-index: 2000;
+    background: 0 0;
+    opacity: .3;
+    /* Übergang zum Hover-Status */
+    transition: opacity 2s ease;
+}
+
+#albisNext {
+    right: 0
+}
+
+#albisNext_span, #albisPrev_span {
+    float: left;
+    text-indent: -10000px;
+}
+
+#albisNext:hover, #albisPrev:hover {
+    background: 0 0!important;
+    opacity: 1
+}
+
+#albisNext:before, #albisPrev:before {
+    margin-top: -1.4em
+
+    width: auto;
+    font-size: 5em;
+    line-height: 3;}
+
+/* Vor- und Zurückpfeile */
+
+#albisNext:before {
+    position: absolute;
+    right: 3%;
+    color: #fff;
+    content: '\2771';
+}
+
+#albisPrev:before {
+    position: absolute;
+    left: 3%;
+    color: #fff;
+    content: '\2770';
+}
+
+/* Bildzähler */
+
+#albisCounter {
+    top: 2%;
+    z-index: 2000;
+    text-align: center;
+    color: #fff;
+    font-size: 1rem;
+    position: relative;
+}
+
+/* Exit-Button */
+
+#albisExit {
+    top: 1%;
+    right: 1%;
+    float: right;
+    border: none;
+    border-radius: .2em;
+    outline: 0;
+    z-index: 2000;
+    background: #fff;
+    font-size: 1rem;
+    position: relative;
+}
+
+
+
